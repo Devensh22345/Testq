@@ -1,7 +1,7 @@
 import os
 
-API_ID = int(os.getenv("API_ID", "22207976"))
-API_HASH = os.getenv("API_HASH", "5c0ad7c48a86afac87630ba28b42560d")
+API_ID = int(os.getenv("API_ID", "29308061"))
+API_HASH = os.getenv("API_HASH", "462de3dfc98fd938ef9c6ee31a72d099")
 
 MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://Test:Test@cluster0.pcpx5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
