@@ -19,12 +19,6 @@ async def change_command(client: Client, message: Message):
     await message.reply_text("Changing the public channel link...")
     await change_channel_link(client)
 
-# Automatically change channel links every 6 hours
-async def auto_change_links():
-    while True:
-        await change_channel_link(app)
-        await asyncio.sleep(LINK_CHANGE_INTERVAL)
-
 # Login assistant account
 @app.on_message(filters.command("login") & filters.private)
 async def login_command(client: Client, message: Message):
@@ -40,7 +34,19 @@ async def handle_logout(client: Client, message: Message):
 async def handle_phone_number(client: Client, message: Message):
     await process_phone_number(client, message)
 
-# Run the bot
+# Automatically change channel links every 6 hours
+async def auto_change_links():
+    while True:
+        await change_channel_link(app)
+        await asyncio.sleep(LINK_CHANGE_INTERVAL)
+
+# Start the bot and scheduled task
+async def main():
+    await app.start()
+    print("Bot started")
+    asyncio.create_task(auto_change_links())  # Schedule the auto change task
+    await app.idle()  # Keep the bot running
+
 if __name__ == "__main__":
-    app.run(auto_change_links())
+    asyncio.run(main())
     
