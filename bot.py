@@ -42,6 +42,5 @@ async def handle_phone_number(client: Client, message: Message):
 
 # Run the bot
 if __name__ == "__main__":
-    app.start()
-    app.loop.create_task(auto_change_links())
-    app.run()
+    app.run(auto_change_links())
+    
