@@ -177,3 +177,6 @@ __pycache__/
 .vscode/
 .env
 
+run.sh
+
+
