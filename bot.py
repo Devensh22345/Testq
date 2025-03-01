@@ -4,6 +4,7 @@ from pyrogram.types import Message
 import asyncio
 from config import API_ID, API_HASH, BOT_TOKEN, LINK_CHANGE_INTERVAL
 from plugins.change_link import change_channel_link
+from plugins.login import ask_phone_number, process_phone_number
 
 app = Client("ChannelLinkChangerBot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
